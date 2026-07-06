@@ -248,7 +248,7 @@
     color: #999;
 }
 
-#djDebug #djDebugToolbar li a:hover {
+#djDebugToolbar li a:hover {
     color: #111;
     background-color: #ffc;
 }
