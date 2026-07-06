@@ -210,6 +210,22 @@
     width: auto;
 }
 
+#djDebug #djDebugToolbar li.djdt-logo {
+    border-bottom: none;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 15px 10px;
+    width: 100%;
+}
+
+#djDebug #djDebugToolbar li.djdt-logo img {
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 #djDebug #djDebugToolbar input[type="checkbox"] {
     float: right;
     margin: 10px;

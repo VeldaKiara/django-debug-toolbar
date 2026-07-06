@@ -28,6 +28,9 @@
       {% for panel in toolbar.panels %}
         {% include "debug_toolbar/includes/panel_button.html" %}
       {% endfor %}
+      <li class="djdt-logo">
+        <img src="{% static 'debug_toolbar/img/Coloured-Light.svg' %}" alt="Django Debug Toolbar">
+      </li>
     </ul>
   </div>
   <div class="djdt-hidden" id="djDebugToolbarHandle">
