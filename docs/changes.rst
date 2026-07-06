@@ -4,6 +4,72 @@ Change log
 Pending
 -------
 
+* Fixed the Django version check in the SQL panel test suite for Django's
+  boolean parameter handling.
+
+7.0.0 (2026-06-17)
+------------------
+
+* Prevent check from failing when ``ROOT_URLCONF`` is not defined.
+* Prevent toolbar storage from failing when serialized panel data contains
+  mapping keys that are not JSON-compatible.
+* Prevent debounce race conditions in the history panel for rapid
+  fetch requests.
+* Added a note to the prerequisites section of the installation docs
+  about requiring an up-to-date browser.
+* Dropped support for Django 4.2 and Django 5.1 .
+* Updated to render the toolbar in a shadow DOM for better isolation
+  from the rest of the page. This can be disabled with the setting
+  ``USE_SHADOW_DOM``.
+* Note that custom themes overriding CSS variables on :root must move
+  those overrides to ``#djDebug``, and custom panels that rely on external
+  styles or DOM lookups reaching into the toolbar will need updates to
+  work with the shadow DOM.
+* Added graceful degradation for SQL queries that exceed sqlparse's token
+  limits. When ``SQLParseError`` is raised, the SQL panel now automatically
+  disables grouping and retries formatting, preventing crashes with large
+  queries.
+* Upgraded the JavaScript code to use modern ECMAScript features using
+  ``esupgrade``.
+* Updated tox configuration to treat ``DeprecationWarning``,
+  ``ResourceWarning``, and ``PendingDeprecationWarning`` as errors.
+* Clarified configuration documentation about ``SHOW_TOOLBAR_CALLBACK``
+  needing to respect ``django.conf.settings.DEBUG`` to match
+  ``debug_toolbar_urls``.
+* Fixed cookie ``expires`` calculation in ``djdt.cookie.set``.
+* Account for the new ``CULL_PROBABILITY`` in Django 6.2 in tests.
+* Support Django 6.2's handling of booleans for non-PostgreSQL databases.
+* Changed the SQL panel to show the "Select" and "Explain" action buttons for
+  all queries, not just ``SELECT`` statements.
+* Fixed SQL panel handling of binary parameters (e.g. from ``BinaryField``)
+  and GeoDjango PostGIS geometry parameters. EWKB geometry adapters are now
+  serialized and reconstructed so that Select and Explain work correctly on
+  spatial queries.
+
+6.3.0 (2026-04-01)
+------------------
+
+* Replaced ``requirements_dev.txt`` file for ``pyproject.toml`` support with
+  dependency groups.
+* Updated ReadTheDocs Python version to 3.13.
+* Modernize some panel styles and colors.
+* Standardize use of time/duration units and labels across panels.
+* Added translations for Lithuanian, Turkish and Uzbek.
+* Update the translations.
+* Expose a ``py.typed`` marker file.
+* Updated ``RedirectsPanel`` to emit the deprecation warning when it's used
+  rather than on instantiation.
+* Highlighted the documentation about disabling the browser's caching to
+  ensure the latest static assets are used.
+* Fixed bug with ``CachePanel`` so the cache patching is only applied
+  once.
+* Added ``debug_toolbar.store.CacheStore`` for storing toolbar data using
+  Django's cache framework. This provides persistence without requiring
+  database migrations, and works with any cache backend (Memcached, Redis,
+  database, file-based, etc.).
+* Added ``CACHE_BACKEND`` and ``CACHE_KEY_PREFIX`` settings to configure the
+  ``CacheStore``.
+
 6.2.0 (2026-01-20)
 ------------------
 
