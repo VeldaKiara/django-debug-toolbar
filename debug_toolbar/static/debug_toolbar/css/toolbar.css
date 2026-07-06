@@ -17,9 +17,9 @@
 #djDebug[data-theme="light"] {
     --djdt-font-color: black;
     --djdt-background-color: white;
-    --djdt-panel-content-background-color: #eee;
+    --djdt-panel-content-background-color: #e0f8ff;
     --djdt-panel-content-table-background-color: var(--djdt-background-color);
-    --djdt-panel-title-background-color: #ffc;
+    --djdt-panel-title-background-color: #38bbe8;
     --djdt-panel-content-table-strip-background-color: #f9f9f9;
     --djdt-highlighted-background-color: #ffc;
     --djdt-toggle-template-background-color: #bbb;
@@ -32,7 +32,7 @@
 
     --djdt-table-header-color: #666;
     --djdt-table-header-background-color: #f8f8f8;
-    --djdt-table-border-color: #ddd;
+    --djdt-table-border-color: #30c16e;
     --djdt-button-border-color: #ccc;
     --djdt-button-hover-border-color: #aaa;
     --djdt-pre-border-color: var(--djdt-table-border-color);
@@ -42,9 +42,9 @@
 #djDebug[data-theme="dark"] {
     --djdt-font-color: #f8f8f2;
     --djdt-background-color: #121212;
-    --djdt-panel-content-background-color: #121212;
+    --djdt-panel-content-background-color: #014a5f;
     --djdt-panel-content-table-background-color: var(--djdt-background-color);
-    --djdt-panel-title-background-color: #417690;
+    --djdt-panel-title-background-color: #38bbe8;
     --djdt-panel-content-table-strip-background-color: #171717;
     --djdt-highlighted-background-color: #00363a;
     --djdt-toggle-template-background-color: #353535;
@@ -57,7 +57,7 @@
 
     --djdt-table-header-color: #f8f8f8;
     --djdt-table-header-background-color: #212121;
-    --djdt-table-border-color: #353535;
+    --djdt-table-border-color: #30c16e;
     --djdt-button-border-color: #666;
     --djdt-pre-border-color: var(--djdt-table-border-color);
     --djdt-raw-border-color: var(--djdt-table-border-color);
