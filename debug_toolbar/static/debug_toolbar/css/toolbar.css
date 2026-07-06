@@ -1237,6 +1237,7 @@ To regenerate:
     font-size: 1em;
 }
 
+/* biome-ignore lint/style/noDescendingSpecificity: targets community-panel links, no real cascade conflict. */
 #djDebug .djdt-community-panel a:hover {
     text-decoration: underline;
 }
