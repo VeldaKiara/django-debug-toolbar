@@ -21,7 +21,7 @@
         data-update-on-fetch="{{ toolbar.config.UPDATE_ON_FETCH }}">
       <div class="djdt-hidden" id="djDebugToolbarHandle">
         <div title="{% translate 'Show toolbar' %}" id="djShowToolBarButton">
-          <span id="djShowToolBarD">D</span><span id="djShowToolBarJ">J</span>DT
+          <img src="{% static 'debug_toolbar/img/Green.svg' %}" alt="Django Debug Toolbar" width="10" height="10">
         </div>
       </div>
       <div class="djdt-hidden" id="djDebugToolbar">
@@ -35,19 +35,14 @@
           {% for panel in toolbar.panels %}
             {% include "debug_toolbar/includes/panel_button.html" %}
           {% endfor %}
+          <li class="djdt-logo">
+            <img src="{% static 'debug_toolbar/img/Coloured-Light.svg' %}" alt="Django Debug Toolbar">
+          </li>
         </ul>
       </div>
       {% for panel in toolbar.panels %}
         {% include "debug_toolbar/includes/panel_content.html" %}
       {% endfor %}
-      <li class="djdt-logo">
-        <img src="{% static 'debug_toolbar/img/Coloured-Light.svg' %}" alt="Django Debug Toolbar">
-      </li>
-    </ul>
-  </div>
-  <div class="djdt-hidden" id="djDebugToolbarHandle">
-    <div title="{% translate 'Show toolbar' %}" id="djShowToolBarButton">
-      <img src="{% static 'debug_toolbar/img/Green.svg' %}" alt="Django Debug Toolbar" width="10" height="10">
       <div id="djDebugWindow" class="djdt-panelContent djdt-hidden"></div>
     </div>
   {% if use_shadow_dom %}</template>{% endif %}
