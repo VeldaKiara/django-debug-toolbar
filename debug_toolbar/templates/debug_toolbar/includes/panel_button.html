@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n static %}
 
 <li id="djdt-{{ panel.panel_id }}" class="djDebugPanelButton">
   <input type="checkbox" data-cookie="djdt{{ panel.panel_id }}" {% if panel.enabled %}checked title="{% translate "Disable for next and successive requests" %}"{% else %}title="{% translate "Enable for next and successive requests" %}"{% endif %}>
@@ -7,6 +7,7 @@
   {% else %}
     <div class="djdt-contentless{% if not panel.enabled %} djdt-disabled{% endif %}">
   {% endif %}
+  {% if panel.nav_icon %}<img src="{% static panel.nav_icon %}" alt="" class="djdt-nav-icon">{% endif %}
   {{ panel.nav_title }}
   {% if panel.enabled %}
     {% with subtitle=panel.nav_subtitle %}

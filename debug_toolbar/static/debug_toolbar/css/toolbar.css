@@ -1,9 +1,29 @@
+/* Self-hosted fonts Alef and Geist is the primary font for the rest of the toolbar text. */
+@font-face {
+    font-family: "Alef";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src:
+        url("../fonts/Alef-Bold.woff2") format("woff2"),
+        url("../fonts/Alef-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Geist";
+    font-style: normal;
+    /* Variable font: a single file covers the full weight range. */
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../fonts/Geist.woff2") format("woff2");
+}
+
 /* Variable definitions */
 #djDebug {
     /* Font families are the same as in Django admin/css/base.css */
     --djdt-font-family-primary:
-        "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Geist", "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial,
+        sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
     --djdt-font-family-monospace:
         ui-monospace, Menlo, Monaco, "Cascadia Mono",
@@ -67,6 +87,8 @@
 #djDebug {
     color: var(--djdt-font-color);
     background: var(--djdt-background-color);
+    /* Base weight for general text; specific elements override as needed. */
+    font-weight: 500;
 }
 #djDebug,
 #djDebug div,
@@ -243,6 +265,18 @@
     padding: 7px 10px 8px 25px;
     color: #fff;
 }
+
+#djDebug #djDebugToolbar li .djdt-nav-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: text-bottom;
+}
+
+/* On hover the label turns black; recolor the white icon to match. */
+#djDebug #djDebugToolbar li a:hover .djdt-nav-icon {
+    filter: brightness(0);
+}
 #djDebug #djDebugToolbar li > div.djdt-disabled {
     font-style: italic;
     color: #999;
@@ -363,11 +397,35 @@
     right: 0;
     left: 0;
     height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#djDebug .djDebugPanelTitle h3 {
+    font-family: "Alef", var(--djdt-font-family-primary);
+    font-weight: 700;
 }
 
 #djDebug .djDebugPanelTitle code {
     display: inline;
     font-size: inherit;
+}
+
+#djDebug .djDebugPanelTitle .djdtHistoryRefreshForm {
+    display: inline-flex;
+    align-items: center;
+    /* Push the button to the right, leaving room for the close button. */
+    margin: 0 90px 0 auto;
+}
+
+#djDebug .djDebugPanelTitle .refreshHistory {
+    background-color: #015d77;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    padding: 8px 18px;
+    font-size: 14px;
 }
 
 #djDebug .djDebugPanelContent {
@@ -432,6 +490,7 @@
 }
 #djDebug .djdt-panelContent tbody th {
     border-top: 1px solid var(--djdt-table-border-color);
+    font-weight: 600;
 }
 #djDebug .djdt-panelContent tbody td,
 #djDebug .djdt-panelContent tbody th {
@@ -451,7 +510,7 @@
     background-color: var(--djdt-table-header-background-color);
     text-align: left;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 11px;
     white-space: nowrap;
 }
