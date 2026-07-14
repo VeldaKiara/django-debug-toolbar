@@ -37,11 +37,13 @@
 #djDebug[data-theme="light"] {
     --djdt-font-color: black;
     --djdt-background-color: white;
-    --djdt-panel-content-background-color: #e0f8ff;
+    --djdt-panel-content-background-color: #f5f6f7;
     --djdt-panel-content-table-background-color: var(--djdt-background-color);
     --djdt-panel-title-background-color: #e0f8ff;
     --djdt-panel-content-table-strip-background-color: #f9f9f9;
-    --djdt-highlighted-background-color: #ffc;
+    /* Green tint = "this one is relevant to you" (current request, project
+       frames, highlighted line). Same semantic across panels. */
+    --djdt-highlighted-background-color: rgba(92, 184, 92, 0.14);
     --djdt-toggle-template-background-color: #bbb;
 
     --djdt-sql-font-color: #333;
@@ -67,7 +69,7 @@
     --djdt-panel-content-table-background-color: var(--djdt-background-color);
     --djdt-panel-title-background-color: #014a5f;
     --djdt-panel-content-table-strip-background-color: #171717;
-    --djdt-highlighted-background-color: #00363a;
+    --djdt-highlighted-background-color: rgba(92, 184, 92, 0.18);
     --djdt-toggle-template-background-color: #353535;
 
     --djdt-sql-font-color: var(--djdt-font-color);
@@ -1259,6 +1261,11 @@ To regenerate:
 }
 #djDebug .djdt-highlighted {
     background-color: var(--djdt-highlighted-background-color);
+}
+/* Left accent so the highlighted row stays legible where the tint is subtle
+   (notably dark mode). */
+#djDebug tr.djdt-highlighted {
+    border-left: 3px solid #5cb85c;
 }
 @keyframes djdt-flash-new {
     from {
