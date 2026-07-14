@@ -6,6 +6,18 @@ Pending
 
 * Fixed the Django version check in the SQL panel test suite for Django's
   boolean parameter handling.
+* Refreshed the toolbar's visual design with self-hosted Alef (panel titles)
+  and Geist (body text) fonts, an updated color palette, and per-panel
+  navigation icons.
+* Added a "Docs" link to the toolbar that opens the documentation.
+* Changed the highlight color for the current request and other
+  "relevant to you" rows from yellow to a green tint, with a left border
+  accent for legibility in dark mode.
+* Added a design guidelines page to the documentation describing the project's
+  logo, color palette and typography.
+* Added a talk to the resources documentation.
+* Ignored the ``django-csp`` ``MiddlewareMixin`` deprecation warning on
+  Django's development branch so the test suite passes.
 
 7.0.0 (2026-06-17)
 ------------------
