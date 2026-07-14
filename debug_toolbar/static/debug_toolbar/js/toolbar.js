@@ -19,6 +19,10 @@ const djdt = {
         const djDebug = getDebugElement();
         djdt.needUpdateOnFetch = djDebug.dataset.updateOnFetch === "True";
         $$.on(djDebug, "click", "#djDebugPanelList li a", function (event) {
+            // Let real navigation links (e.g. the Docs link) work normally.
+            if (this.getAttribute("href") !== "#") {
+                return;
+            }
             event.preventDefault();
             if (!this.className) {
                 return;

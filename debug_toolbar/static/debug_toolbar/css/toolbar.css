@@ -39,7 +39,7 @@
     --djdt-background-color: white;
     --djdt-panel-content-background-color: #e0f8ff;
     --djdt-panel-content-table-background-color: var(--djdt-background-color);
-    --djdt-panel-title-background-color: #38bbe8;
+    --djdt-panel-title-background-color: #e0f8ff;
     --djdt-panel-content-table-strip-background-color: #f9f9f9;
     --djdt-highlighted-background-color: #ffc;
     --djdt-toggle-template-background-color: #bbb;
@@ -53,6 +53,7 @@
     --djdt-table-header-color: #666;
     --djdt-table-header-background-color: #f8f8f8;
     --djdt-table-border-color: #30c16e;
+    --djdt-timeline-bar-color: rgba(92, 184, 92, 0.7);
     --djdt-button-border-color: #ccc;
     --djdt-button-hover-border-color: #aaa;
     --djdt-pre-border-color: var(--djdt-table-border-color);
@@ -64,7 +65,7 @@
     --djdt-background-color: #121212;
     --djdt-panel-content-background-color: #014a5f;
     --djdt-panel-content-table-background-color: var(--djdt-background-color);
-    --djdt-panel-title-background-color: #38bbe8;
+    --djdt-panel-title-background-color: #014a5f;
     --djdt-panel-content-table-strip-background-color: #171717;
     --djdt-highlighted-background-color: #00363a;
     --djdt-toggle-template-background-color: #353535;
@@ -78,6 +79,7 @@
     --djdt-table-header-color: #f8f8f8;
     --djdt-table-header-background-color: #212121;
     --djdt-table-border-color: #30c16e;
+    --djdt-timeline-bar-color: #6ec86e;
     --djdt-button-border-color: #666;
     --djdt-pre-border-color: var(--djdt-table-border-color);
     --djdt-raw-border-color: var(--djdt-table-border-color);
@@ -266,25 +268,40 @@
     color: #fff;
 }
 
-#djDebug #djDebugToolbar li .djdt-nav-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 6px;
+/* "Hide »" on the left, "Docs" link on the right of the same row. */
+#djDebug #djDebugToolbar li.djdt-hide-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+#djDebug #djDebugToolbar li .djdt-docs-icon {
+    width: 1.2em;
+    height: 1.2em;
+    margin-left: 5px;
     vertical-align: text-bottom;
 }
 
-/* On hover the label turns black; recolor the white icon to match. */
-#djDebug #djDebugToolbar li a:hover .djdt-nav-icon {
-    filter: brightness(0);
+#djDebug #djDebugToolbar li .djdt-nav-icon {
+    width: 1.4em;
+    height: 1.4em;
+    margin-right: 3px;
+    vertical-align: text-bottom;
 }
+
+/* The Versions icon is wider than tall; size by height and keep its ratio. */
+#djDebug #djDebugToolbar li#djdt-VersionsPanel .djdt-nav-icon {
+    width: auto;
+    height: 1.4em;
+}
+
 #djDebug #djDebugToolbar li > div.djdt-disabled {
     font-style: italic;
     color: #999;
 }
 
+/* Subtle translucent-white highlight; text and icon stay white. */
 #djDebug #djDebugToolbar li a:hover {
-    color: #111;
-    background-color: #ffc;
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 #djDebug #djDebugToolbar li.djdt-active {
@@ -303,7 +320,7 @@
 }
 
 #djDebug #djDebugToolbar li.djdt-active a:hover {
-    color: #b36a60;
+    color: #30c16e;
     background-color: transparent;
 }
 
@@ -420,12 +437,17 @@
 }
 
 #djDebug .djDebugPanelTitle .refreshHistory {
-    background-color: #015d77;
+    background-color: #131313;
     color: #fff;
     border: none;
     box-shadow: none;
     padding: 8px 18px;
     font-size: 14px;
+}
+
+#djDebug[data-theme="dark"] .djDebugPanelTitle .refreshHistory {
+    background-color: #fff;
+    color: #131313;
 }
 
 #djDebug .djDebugPanelContent {
@@ -546,7 +568,7 @@
 }
 
 #djDebug .djdt-panelContent .djDebugClose:hover {
-    background: #c0695d;
+    background: #30c16e;
 }
 
 #djDebug .djdt-panelContent dt,
@@ -1151,11 +1173,18 @@ To regenerate:
     fill: #900;
 }
 
+/* "In transaction" is a state indicator: a low-opacity tint of the system green. */
 #djDebug svg.djDebugLineChartInTransaction rect {
-    fill: #d3ff82;
+    fill: rgba(92, 184, 92, 0.25);
 }
+
+/* Timer panel timeline bars use the structural/data green. */
+#djDebug #TimerPanel svg.djDebugLineChart rect {
+    fill: var(--djdt-timeline-bar-color);
+}
+/* Transaction start/end marks: darkened system green for stroke contrast. */
 #djDebug svg.djDebugLineChart line {
-    stroke: #94b24d;
+    stroke: #3d8b3d;
 }
 
 #djDebug .djDebugRowWarning .djdt-time {
