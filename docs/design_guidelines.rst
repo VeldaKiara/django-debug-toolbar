@@ -7,7 +7,7 @@ the toolbar UI, the documentation, the website and any community materials.
 
 The brand assets referenced below live in ``docs/_static/brand/``. The full set
 (every color variant of every layout) is available there as both ``.svg`` and
-``.png`` — the SVGs are used throughout this page, while the PNGs are provided
+``.png``, the SVGs are used throughout this page, while the PNGs are provided
 for contexts that cannot use SVG.
 
 Logo
@@ -189,3 +189,10 @@ Two typefaces carry the brand, both free and usable for web and print:
 In the toolbar UI, panel titles are set in Alef Bold, general text in Geist,
 and code samples in a monospace stack. Both fonts are self-hosted so the
 toolbar keeps working offline and under a strict Content Security Policy.
+
+Credits
+-------
+
+The Django Debug Toolbar brand and logo were designed by Robin of
+`RBNX Studio <https://www.rbnx.studio>`_. Thank you for giving the project its
+visual identity.

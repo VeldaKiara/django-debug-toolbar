@@ -33,7 +33,9 @@ class SettingsIntegrationTestCase(IntegrationTestCase):
             """
             <li id="djdt-SettingsPanel" class="djDebugPanelButton">
             <input type="checkbox" checked title="Disable for next and successive requests" data-cookie="djdtSettingsPanel">
-            <a class="SettingsPanel" href="#" title="Settings from None">Settings</a>
+            <a class="SettingsPanel" href="#" title="Settings from None">
+            <img src="/static/debug_toolbar/img/settings.svg" alt="" class="djdt-nav-icon">
+            Settings</a>
             </li>
             """,
             html=True,
