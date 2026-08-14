@@ -38,7 +38,7 @@
 | debug\_toolbar/panels/sql/utils.py                  |       89 |        0 |       32 |        1 |     99% | 32-\>exit |
 | debug\_toolbar/panels/sql/views.py                  |       69 |        3 |       14 |        3 |     93% |45, 71, 107 |
 | debug\_toolbar/panels/staticfiles.py                |       83 |        2 |       22 |        1 |     97% |123-125, 146-\>145 |
-| debug\_toolbar/panels/tasks.py                      |       31 |        0 |        8 |        0 |    100% |           |
+| debug\_toolbar/panels/tasks.py                      |       32 |        0 |        8 |        0 |    100% |           |
 | debug\_toolbar/panels/templates/\_\_init\_\_.py     |        2 |        0 |        0 |        0 |    100% |           |
 | debug\_toolbar/panels/templates/jinja2.py           |       14 |        0 |        2 |        1 |     94% | 21-\>exit |
 | debug\_toolbar/panels/templates/panel.py            |      135 |        9 |       42 |        8 |     90% |20-\>31, 31-\>39, 42, 159, 163, 176-179, 200-201, 208-\>214, 209-\>213 |
@@ -54,7 +54,7 @@
 | debug\_toolbar/urls.py                              |        4 |        0 |        0 |        0 |    100% |           |
 | debug\_toolbar/utils.py                             |      214 |        7 |       68 |        8 |     95% |30, 61, 121, 125-\>128, 144-\>143, 195-196, 200, 216 |
 | debug\_toolbar/views.py                             |       20 |        0 |        2 |        0 |    100% |           |
-| **TOTAL**                                           | **2674** |  **108** |  **654** |   **68** | **94%** |           |
+| **TOTAL**                                           | **2675** |  **108** |  **654** |   **68** | **94%** |           |
 
 
 ## Setup coverage badge
